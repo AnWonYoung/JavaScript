@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // forEach 콜백 함수 메소드 예제
+        var arr = {
+            0: 10,
+            1: 20,
+            2: 30,
+            3: 40,
+            length: 4,
+            forEach: function(fn) {
+                for(var i=0; i<this.length; i++) {
+                    f(this[i]);
+                }
+           }
+        };
+
+        function print(item) {
+            console.log('item : ' + item);
+        }
+
+        arr.forEach(print);
+    </script>
+</body>
+</html>

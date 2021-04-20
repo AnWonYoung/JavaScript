@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 여기서부터 중요
+        function calc(cal, n1, n2) { // cal 자체가 sum이 되는 것
+            return cal(n1, n2); // 따라서 sum을 호출한 것과 같음
+        }
+
+        function sum(num1, num2) { // sum = 참조변수, 즉 주소값이 들어가 있음
+            return num1 + num2;
+        }
+
+        function minus (num1, num2) {
+            return num1 - num2;
+        }
+
+        function multi(a,b) {
+            return a*b;
+        }
+
+        var result = calc(multi, 2, 3);
+        console.log('multi result', result);
+        
+        console.log('result = %d', calc(sum , 10, 20));
+        /*
+            10과 20이 먼저 sum의 num1과 num2로 각각 들어감
+            return을 보내주면서 위의 calc 메소드로 들어감
+            따라서 return cal(n1, n2); 자체가 30이 되면서
+            console에 30의 값이 찍히게 되는 것
+        
+        */
+        console.log('result = %d',calc(minus , 40, 20)) ;
+        /*
+            minus의 메소드에 들어가면서 동시에
+            calc의 메소드로 return되어 반환값이 나오는 것
+        */
+
+        var methodSum = sum; // 참조값을 변수에 보낼 수 있음
+        console.log('result = %d', methodSum(1,2));
+
+        methodSum = minus // 마이너스를 다시 담은 것
+        console.log('result = %d', methodSum(10,2));
+        
+
+
+    </script>
+</body>
+</html>

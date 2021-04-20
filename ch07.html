@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 자바스크립트는 타입의 중요성이 낮음
+        // 오버로딩이 불가능함. 이전의 식은 날아감.
+        function sum (n1, n2) {
+            return n1 + n2;
+        }
+
+        function sum2 (n1, n2) {
+            console.log('sum2 :  %d', n1+n2)
+        }
+
+        if(sum(10,20)) {
+            console.log('0>이 없어도 가능함');
+        }
+
+        var ddd;
+        if(ddd = sum(0,0)) {
+            console.log(ddd); // 가능!
+        }
+
+        var result = sum(10, 20)
+        console.log('%s = %d', 'result', result);
+
+        sum2(11,22);
+    </script>
+</body>
+</html>
