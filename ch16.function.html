@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //     function sum(n1) {
+    //         if(n1 == undefined) {
+    //         n1 = 10;
+    //     }
+    //     console.log(n1+n1);
+    // }
+
+    function sum(n1=10, n2) {
+        console.log(n1);
+        console.log(n2);
+    }
+        sum(123);
+        sum(10,20);
+
+        console.log('----------------');
+
+    function sumAll(...args) {
+        var sum = 0;
+        for(var i=0; i<args.length; i++) {
+            sum += args[i];
+        } 
+        console.log('sum : ' + sum);
+    }
+
+    sumAll(1);
+    sumAll(1,5);
+    sumAll(1,5,7);
+    sumAll(1,5,7,10);
+
+    </script>
+</body>
+</html>

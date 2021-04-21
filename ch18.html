@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> // 오래 걸릴 것 같으면 무조건 Primise로 감싸주기
+             // callback 지옥을 피하기 위해서 사용함
+
+        var fn = function(resolve, reject) {
+            // 여기는 오래 걸리는 작업!
+            // if(작업이 잘 완료됐다면) {
+            //     resolve();
+            // }else {           
+            //     reject();
+            // }
+        }
+        var prom = new Promise(fn); // 객체 생성
+
+        var pro1 = new Promise(function(resolve, reject) {
+            setTimeout(function() {
+                resolve(100); // resolve, 혹은 reject 둘 중 하나는 무조건 사용
+                // reject(100);
+            }, 5000);
+
+        });
+
+        var pro2 = new Promise(function(resolve) {
+            setTimeout(function() {
+                resolve(2);
+            }, 3000)
+        });
+
+        /*
+            then - resolve
+            catch - reject
+        */
+
+        pro1.then(function(res) { // resolve(100)의 100값이 나오게 될 것 (then)
+            console.log('pro1 : ' + res);
+        }).catch(function(err) {
+            console.log('err : ' + err); // var pro1에서 reject(100)을 보냈을 때 uncatch를 잡아줌
+        })
+
+        pro2.then(function(res) {
+            console.log('pro2 : ' + res);
+        })
+
+    </script>
+</body>
+</html>

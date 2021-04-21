@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function foo() {
+            return new Promise(function(resolve) {
+                setTimeout(function() {
+                    console.log('foo ok');
+                }, 3000);
+            });
+        }
+
+        function bar() {
+            return new Promise(function(resolve) {
+                setTimeout(function() {
+                    console.log('bar ok');
+                    resolve();
+                }, 2000);
+            })
+        }
+
+        function baz() {
+            return new Promise(function(resolve) {
+                setTimeout(function() {
+                    console.log('bazzzzz ok');
+                    resolve();
+                }, 1000);
+            })
+        }
+
+        foo().then(function() {
+            return bar();
+        }).then(function() {
+            return baz();
+        }).then(function() {
+        });
+        // await, async 문법을 사용했을 때 ** function 하나가 더 필요함
+        async function run() { //async 반드시 주기
+            await foo(); 
+            await bar(); 
+            await baz();
+        }
+        run();
+    </script>
+</body>
+</html>

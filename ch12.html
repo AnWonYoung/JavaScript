@@ -8,14 +8,17 @@
 </head>
 <body>
     <script>
-        var arr2 = [10,20,30,40];
-        
+        var arr2 = [10,20,30,40,50];
+        // map(함수 바로 사용)
         var result = arr2.map(function (item) {
-            return item *2;
+            if(item > 35) {
+               return item +5;
+           } 
+           return item -5;
         });
 
         function myMap(item) {
-            return item -2;
+            return item +1;
         }
         var result2 = arr2.map(myMap);
         console.log(result.toString());

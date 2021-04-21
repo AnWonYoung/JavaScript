@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [];
+        arr.push(10); // 배열 추가
+        arr.push(20);
+        arr.push(30);
+        arr.push(40);
+
+        // arr.shift();
+        // arr.shift();  앞에서부터 순차적으로 자르기
+
+        // arr.length = arr.length -1;  뒤에서부터 자르기
+        // arr.pop();                   위와 동일, 이 방법을 주로 사용
+
+        // arr.unshift(11); 앞에서 값을 추가로 넣는 것
+        // arr.unshift(33);
+        console.log('arr : ', arr);
+        var dalVal = arr.splice(2,1);
+        console.log('arr : ', arr);
+        console.log('delVal : ' + deVal);
+    </script>
+</body>
+</html>
